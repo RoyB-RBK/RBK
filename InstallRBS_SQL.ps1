@@ -55,12 +55,12 @@ Start-Transcript -Path C:\output.txt -Append
 
 $csv = Import-Csv $CSVLoc
 $Out = "C:\RubrikBackupService.zip"
-$RubrikConnection = @{
+
+<#$RubrikConnection = @{
     Server = $RubrikCluster
     RubrikCreds = $RubrikCreds
-                     } #assigned but NEVER USED...
-                     
-#$LogOnAsCreds = Get-Credential -Message "Enter the Username (eg. DOMAIN\name) and Password for your RBS 'Log On As' Account."
+                     } #>
+         
 $ReadPass = (New-Object PSCredential $LogOnAsCreds.Username,$LogOnAsCreds.Password).GetNetworkCredential().Password
 
 
@@ -140,9 +140,10 @@ Write-Host "The Copy and Installation Process will now start again for any other
 
 Stop-Transcript
 
-
-# Error check if host does not exist or typo
-# Check against existing machines/VM/RBS installed
-# 
+<# 
+ Additions for the future:
+ Error check if host does not exist or typo
+ Check against existing machines/VM/RBS installed
+#> 
 
 
